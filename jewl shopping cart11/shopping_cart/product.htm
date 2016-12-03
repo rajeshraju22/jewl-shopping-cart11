@@ -1,0 +1,76 @@
+<p class="My-Text">
+    <img ng-src="img/rings/{{product.sku}}.jpg" alt="{{product.name}}" />
+    {{product.name}}: {{product.description}}<br />
+</p>
+<ul class="Ring_Descr">
+    <li>Milgrain, pave floral or embossed designs</li>
+    <li>Sentimental touches</li>
+    <li>Strong use of embellishment</li>
+    <li>The wearer would love a wedding in a romantic setting like a castle or a garden full of flowers</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span8">
+
+            <!-- product info -->
+            <table class="table table-bordered">
+
+                <tr class="well">
+                    <td class="MyRight1" colspan="3">
+                        <a href="index.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                            <i class="icon-shopping-cart" />
+                            <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+                            <span ng-show="cart.getTotalCount(product.sku) > 0"><br />This product is in the cart</span>
+                        </a>
+                    </td>
+                </tr>
+
+
+                <!--<tr>
+                    <td class="MyRight"><b>Calories</b></td>
+                    <td class="MyCenter"><h2>{{product.cal}}</h2></td>
+                    <td />
+                </tr>
+                <tr ng-repeat="(nutrientName, nutrientValue) in product.nutrients">
+                    <td class="MyRight"><b>{{nutrientName}}</b></td>
+                    <td class="MyCenter"><img ng-src="img/r{{nutrientValue}}.png" alt="{{nutrientValue}}" /></td>
+                    <td>
+                        <b>{{store.dvaCaption[nutrientValue]}}</b>:
+                        {{store.dvaRange[nutrientValue]}}
+                        of the recommended daily value.
+                    </td>
+                </tr>
+
+                <tr class="well">
+                    <td class="MyRight" colspan="3" >
+                        <a href="index.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                            <i class="icon-shopping-cart" />
+                            <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+                            <span ng-show="cart.getTotalCount(product.sku) > 0"><br />this item is in the cart</span>
+                        </a>
+                    </td>
+                </tr>-->
+
+            </table>
+        </div>
+
+        <!-- buttons -->
+        <div class="span4">
+            <button class="btn btn-block btn-success"
+                    ng-click="cart.addItem(product.sku, product.name, product.price, 1)">
+                <i class="icon-shopping-cart icon-white" /> Add to cart
+            </button>
+            <button class="btn btn-block btn-danger"
+                    ng-click="cart.addItem(product.sku, product.name, product.price, -10000)"
+                    ng-disabled="cart.getTotalCount(product.sku) < 1">
+                <i class="icon-trash icon-white" /> Remove from cart
+            </button>
+            <button class="btn btn-block"
+                    onclick="window.location.href=''">
+                <i class="icon-chevron-left" /> Back to store
+            </button>
+        </div>
+    </div>
+</div>
+
